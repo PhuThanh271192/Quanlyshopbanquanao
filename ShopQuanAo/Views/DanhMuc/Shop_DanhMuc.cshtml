@@ -1,0 +1,33 @@
+﻿@model IEnumerable<ShopQuanAo.Models.Entities.DanhMuc>
+@{
+    ViewBag.Title = "Shop_DanhMuc";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<section class="section-content padding-y">
+    <div class="container">
+            <div class="row">
+                @foreach (var i in Model)
+                {
+                    <div class="col-md-3">
+
+                        <figure class="card card-product-grid">
+                            <div class="img-wrap">
+                                @*<span class="badge badge-danger"> NEW </span>*@<span class="badge badge-danger"></span>
+                                <a href="@Url.Action("DanhMuc_SanPham","DanhMuc",new {idDM=i.MaDM})"><img src="~/Content/images/product/@i.AnhDM"/></a>
+                            </div> <!-- img-wrap.// -->
+                            <figcaption class="info-wrap">
+                                <a href="@Url.Action("DanhMuc_SanPham","DanhMuc",new {idDM=i.MaDM})" class="title mb-2">@i.TenDM</a>
+
+                            </figcaption>
+                        </figure>
+
+                    </div> <!-- col.// -->
+                }
+
+            </div> <!-- row end.// -->
+
+    </div> <!-- container .//  -->
+</section>
+<!-- ========================= SECTION CONTENT END// ========================= -->

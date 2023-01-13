@@ -1,0 +1,42 @@
+﻿@model IEnumerable<ShopQuanAo.Models.Entities.DanhMuc>
+
+@{
+    ViewBag.Title = "QLDanhMuc";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Quản lý danh mục</h2>
+
+<table class="table" style="border:1px">
+    <tr>
+        <th>
+            Tên danh mục
+          
+        </th>
+        <th>
+            Ảnh danh mục
+            
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.TenDM)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AnhDM)
+           
+        </td>
+        <td>
+            @Html.ActionLink("Sửa", "Edit", new { id=item.MaDM }) |
+            @Html.ActionLink("Chi tiết", "Details", new { id=item.MaDM }) |
+            @Html.ActionLink("Xóa", "Delete", new { id=item.MaDM })
+        </td>
+    </tr>
+}
+</table>
+<p>
+    @Html.ActionLink("Thêm mới", "Create")
+</p>
